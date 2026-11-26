@@ -1,0 +1,85 @@
+[
+{
+"id": "695efbbc3c9b47c09b7cd9c2",
+"name_he": "רן דיין",
+"name_en": "Ran Dayan",
+"role_he": "בעלים ומנהל",
+"role_en": "Owner & Managing Broker",
+"phone": "+972527334884",
+"whatsapp": "+972527334884",
+"email": "RanDayanKings@gmail.com",
+"photo": ""
+},
+{
+"id": "695efbbc3c9b47c09b7cd9c1",
+"name_he": "יונתן מרגלית",
+"name_en": "Yehonatan Margalit",
+"phone": "+972522352225",
+"whatsapp": "+972522352225",
+"email": "yehonatan@margalit.group",
+"photo": "public/21fc747d1_502e37cb-ad5f-4956-8b30-d0d10439cec0.jpeg"
+},
+{
+"id": "695f10cc0935ff1e57aabcc0",
+"name_he": "ישראל מארק",
+"name_en": "Israel Mark",
+"phone": "+972544355366",
+"whatsapp": "+972544355366",
+"email": "israel944@gmail.com",
+"photo": "public/4bc2571ff_IMG_3153.jpeg"
+},
+{
+"id": "695efbbc3c9b47c09b7cd9c3",
+"name_he": "רפאל באך",
+"name_en": "Refael Bach",
+"phone": "+972556871172",
+"whatsapp": "+972556871172",
+"email": "052mash@gmail.com",
+"photo": "public/d45c3712e_DDB9AF00-FF0E-4ADF-A495-C70F1D8B3AE6.png"
+},
+{
+"id": "6964d579ca3d22aed51dfe3e",
+"name_he": "טובה וינברג",
+"name_en": "Tova Weinberg",
+"phone": "+972534160373",
+"whatsapp": "+972535657575",
+"email": "tw4160373@gmail.com",
+"photo": "public/d93962bb1_Tovaprofile.png"
+},
+{
+"id": "6964d43ee5ed28436b526e9e",
+"name_he": "דוד ג׳ורג",
+"name_en": "David Georges",
+"phone": "+972534550053",
+"whatsapp": "+972534550053",
+"email": "david2georges@gmail.com",
+"photo": ""
+},
+{
+"id": "6964d49a7ff50bcd8f26213d",
+"name_he": "זכריה דיין",
+"name_en": "Zakaria Dayan",
+"phone": "+972526913963",
+"whatsapp": "+972526913963",
+"email": "rehaviakings@gmail.com",
+"photo": ""
+},
+{
+"id": "6978a1f9f8b438436657036b",
+"name_he": "אליהו אייזן",
+"name_en": "Eliyahu Eisen",
+"phone": "+972544872861",
+"whatsapp": "+972544872861",
+"email": "0544872861a@gmail.com",
+"photo": ""
+},
+{
+"id": "wa-shimon-abitbul",
+"name_he": "שמעון אביטבול",
+"name_en": "Shimon Abitbul",
+"phone": "+972542817948",
+"whatsapp": "+972542817948",
+"email": "",
+"photo": ""
+}
+]

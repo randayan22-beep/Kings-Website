@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KINGS – נדל״ן יוקרה בירושלים</title>
+<link rel="icon" href="img/brand/kings-icon.svg" type="image/svg+xml">
+<meta name="description" content="KINGS Jerusalem Luxury Real Estate – נכסי יוקרה למכירה בשכונות המבוקשות של ירושלים">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;500;700&family=Frank+Ruhl+Libre:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: modern Jerusalem boutique agency – photo first, quiet type, lots of white
+   IDEA: a gallery wall of homes; the photos carry the page, type and gold rules frame them
+   PICTURE: full-bleed crossfading hero of KINGS listings (drawn Old City at dusk when photos are unavailable)
+   COLOUR+TYPE: white & warm limestone, near-black ink, KINGS navy for depth, KINGS gold as the only accent; Heebo light for display, Frank Ruhl Libre for prices & numbers
+   LAYOUT: transparent header over hero → stats strip → featured carousel → grid → neighborhoods mosaic → team → CTA */
+:root{color-scheme:light dark;
+--navy:#0a1c33;--gold:#b8933a;--gold2:#d6b25a;
+--bg:light-dark(#ffffff,#0b1626);--alt:light-dark(#f5f1ea,#0f1d31);--card:light-dark(#ffffff,#122238);
+--ink:light-dark(#151a21,#efe9de);--mute:light-dark(#6a717b,#9ea8b5);--line:light-dark(#e7e1d6,#22344d)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.65 Heebo,system-ui,sans-serif;font-weight:400;overflow-x:clip}
+h1,h2,h3{font-weight:300;line-height:1.12;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(30px,3.8vw,46px)}h3{font-size:20px;font-weight:500;line-height:1.3}
+a{color:inherit}button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.num{font-family:"Frank Ruhl Libre",Georgia,serif;font-weight:500}
+.wrap{max-width:1320px;margin:0 auto;padding:0 max(4vw,18px)}
+.band{padding:clamp(56px,8vw,110px) 0}
+.alt{background:var(--alt)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:36px}
+.head p{margin:10px 0 0;color:var(--mute);max-width:56ch}
+.rule{display:block;width:48px;height:1px;background:var(--gold);margin-bottom:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border:1px solid var(--ink);background:transparent;color:var(--ink);text-decoration:none;cursor:pointer;font-weight:500;white-space:nowrap;transition:background .2s,color .2s}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn.solid{background:var(--ink);color:var(--bg)}.btn.solid:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:#fff}.btn.gold:hover{background:var(--navy);border-color:var(--navy)}
+.btn.wa{background:#1fa855;border-color:#1fa855;color:#fff}
+.btn.light{border-color:#fff;color:#fff}.btn.light:hover{background:#fff;color:var(--navy)}
+.ico{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+/* header */
+header{position:fixed;top:0;inset-inline:0;z-index:40;transition:background .3s,box-shadow .3s,color .3s;color:var(--ink);background:var(--bg);box-shadow:0 1px 0 var(--line)}
+header.clear{background:transparent;box-shadow:none;color:#fff}
+.hdr{display:flex;align-items:center;gap:28px;height:78px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{height:46px;width:auto;display:block}.logo .lk-l{display:none}header.clear .logo .lk-d{display:none}header.clear .logo .lk-l{display:block}
+.flogo img{width:190px;height:auto;display:block;margin-bottom:18px}
+.logo b{font-family:"Frank Ruhl Libre",serif;font-weight:500;font-size:25px;letter-spacing:.18em;line-height:1;display:block}
+.logo small{display:block;font-size:11px;letter-spacing:.08em;opacity:.75;margin-top:4px}
+nav{display:flex;gap:6px;margin-inline-start:auto}
+nav a{text-decoration:none;padding:10px 12px;font-size:15.5px;position:relative}
+nav a::after{content:"";position:absolute;inset-inline:12px;bottom:4px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .25s}
+nav a.on::after,nav a:hover::after{transform:scaleX(1)}
+.hbtns{display:flex;gap:8px;align-items:center}
+.lang{background:none;border:1px solid currentColor;min-height:40px;padding:0 14px;cursor:pointer;font-size:14px;opacity:.85}
+.menu{display:none;background:none;border:0;min-width:44px;min-height:44px;cursor:pointer;color:inherit}
+.spacer{height:78px}
+/* hero */
+.hero{position:relative;height:min(100svh,880px);min-height:600px;color:#fff;background:var(--navy);overflow:hidden;display:flex;align-items:flex-end}
+.hero .scene{position:absolute;inset:0;width:100%;height:100%}
+[dir=ltr] .hero .scene{transform:scaleX(-1)}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease,transform 8s ease;transform:scale(1.06)}
+.slides img.on{opacity:1;transform:scale(1)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0006 0%,#0000 30%,#0000 45%,#000a 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(36px,6vw,72px)}
+.hero h1{font-size:clamp(38px,6vw,78px);font-weight:200;max-width:15ch}
+.hero h1 b{font-weight:500;color:var(--gold2)}
+.hero p{font-size:clamp(17px,1.6vw,20px);font-weight:300;max-width:48ch;margin:16px 0 30px;opacity:.92}
+.search{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;background:#ffffffeb;backdrop-filter:blur(10px);color:#151a21;max-width:1040px}
+.search label{padding:12px 20px 10px;border-inline-end:1px solid #e3ddd2;display:block;cursor:pointer}
+.search label span{display:block;font-size:12.5px;color:#7a818b;letter-spacing:.02em}
+.search select{width:100%;border:0;background:transparent;min-height:30px;font-size:16px;padding:0;cursor:pointer;color:#151a21}
+.search .btn{border:0;min-height:auto;padding:0 34px}
+.hero-dots{position:absolute;z-index:3;bottom:28px;inset-inline-end:max(4vw,18px);display:flex;gap:8px}
+.hero-dots button{width:28px;height:2px;border:0;padding:0;background:#fff6;cursor:pointer}
+.hero-dots button.on{background:#fff}
+.hero-cap{position:absolute;z-index:3;top:110px;inset-inline-end:max(4vw,18px);font-size:13px;text-decoration:none;color:#fff;opacity:.85;border-bottom:1px solid #fff8;padding-bottom:2px}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.stats div{padding:34px 20px;text-align:center;border-inline-end:1px solid var(--line)}
+.stats div:last-child{border:0}
+.stats b{display:block;font-size:clamp(32px,3.6vw,46px);line-height:1;color:var(--gold)}
+.stats span{display:block;margin-top:8px;color:var(--mute);font-size:15px}
+/* carousel */
+.car{position:relative}
+.ctrack{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.ctrack::-webkit-scrollbar{display:none}
+.big{flex:0 0 min(78vw,560px);scroll-snap-align:start;position:relative;aspect-ratio:4/5;overflow:hidden;color:#fff;text-decoration:none;background:var(--navy)}
+.big .pic{position:absolute;inset:0}
+.big .pic img{transition:transform 1s}
+.big:hover .pic img{transform:scale(1.04)}
+.big::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 45%,#000c)}
+.big .txt{position:absolute;z-index:2;inset-inline:26px;bottom:24px}
+.big .txt small{color:var(--gold2);font-size:14px;letter-spacing:.03em}
+.big .txt h3{font-size:clamp(20px,2vw,26px);font-weight:300;margin:6px 0 10px}
+.big .txt .num{font-size:24px}
+.arrows{display:flex;gap:8px}
+.arrows button{width:48px;height:48px;border:1px solid var(--ink);background:transparent;cursor:pointer;display:grid;place-items:center}
+.arrows button:hover{background:var(--ink);color:var(--bg)}
+[dir=rtl] .flip{transform:scaleX(-1)}[dir=ltr] .flipl{transform:scaleX(-1)}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:34px 26px}
+.card{display:flex;flex-direction:column;text-decoration:none;background:var(--card)}
+.photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--navy)}
+.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.card .pic img{transition:transform .8s}
+.card:hover .pic img{transform:scale(1.05)}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 55%,#000b);pointer-events:none}
+.photo .price{position:absolute;z-index:2;bottom:14px;inset-inline-start:18px;color:#fff;font-size:26px;line-height:1}
+.photo .price small{display:block;font-family:Heebo,sans-serif;font-size:12.5px;font-weight:400;opacity:.85;margin-bottom:4px}
+.ribbon{position:absolute;z-index:2;top:16px;inset-inline-start:0;background:var(--gold);color:#fff;font-size:12.5px;letter-spacing:.04em;padding:5px 14px}
+.ribbon.new{background:var(--navy)}
+.fav{position:absolute;z-index:3;top:10px;inset-inline-end:10px;width:44px;height:44px;border-radius:50%;border:0;background:#fffe;color:#151a21;cursor:pointer;display:grid;place-items:center}
+.fav svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.6}
+.fav.on svg{fill:var(--gold);stroke:var(--gold)}
+.cb{padding:18px 4px 0;display:flex;flex-direction:column;gap:4px;flex:1}
+.cb .where{font-size:13.5px;color:var(--gold);letter-spacing:.02em}
+.cb h3{font-weight:400;font-size:18.5px}
+.specs{display:flex;gap:4px 22px;flex-wrap:wrap;margin-top:14px;padding:14px 0 4px;border-top:1px solid var(--line);color:var(--mute);font-size:14.5px}
+.specs span{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.specs .ico{width:18px;height:18px}
+/* fallback picture */
+.fb{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(120% 90% at 70% 10%,#1d3a5f,#0a1c33 60%);color:var(--gold2);text-align:center}
+.fb svg{width:46px;height:46px;display:block;margin:0 auto 10px;opacity:.9}
+.fb span{font-family:"Frank Ruhl Libre",serif;font-size:19px}
+/* projects split */
+.split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);background:var(--navy);color:#fff;margin-bottom:2px}
+.split .photo{aspect-ratio:auto;min-height:440px}
+.split .photo::after{display:none}
+.split .txt{padding:clamp(32px,5vw,72px);display:flex;flex-direction:column;justify-content:center;gap:16px}
+.split .txt small{color:var(--gold2);letter-spacing:.06em}
+.split .txt p{color:#c8cfd8;margin:0;font-weight:300;max-width:50ch}
+.split.rev .photo{order:2}
+/* neighborhoods mosaic */
+.mosaic{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:230px;gap:12px}
+.tile{position:relative;overflow:hidden;text-decoration:none;color:#fff;background:var(--navy)}
+.tile:nth-child(1){grid-column:span 2;grid-row:span 2}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 40%,#000a)}
+.tile .pic img{transition:transform .9s}.tile:hover .pic img{transform:scale(1.06)}
+.tile div.t{position:absolute;z-index:2;bottom:18px;inset-inline-start:20px}
+.tile b{display:block;font-weight:300;font-size:clamp(21px,2vw,28px)}
+.tile span{font-size:14px;opacity:.85}
+/* search band */
+.finder{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;gap:12px;margin-top:28px}
+.finder select,.filters select{min-height:52px;border:1px solid var(--line);background:var(--card);padding:0 14px;font-size:16px;width:100%}
+/* listings page */
+.filters{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:8px 0 18px}
+.filters label{display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--mute)}
+.toggles{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:14px 0;border-block:1px solid var(--line);margin-bottom:34px}
+.toggles div{display:flex;gap:10px;flex-wrap:wrap}
+.pill{min-height:42px;padding:0 18px;border:1px solid var(--line);background:transparent;cursor:pointer;border-radius:30px;font-size:15px}
+.pill.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.count{color:var(--mute);font-size:15px}
+.empty{padding:60px;text-align:center;border:1px dashed var(--line);color:var(--mute)}
+.pagehead{padding:clamp(40px,6vw,80px) 0 24px}
+.pagehead h1{font-size:clamp(34px,4.6vw,58px)}
+/* property */
+.mos{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:260px 260px;gap:8px;margin-top:8px;position:relative}
+.mos button{position:relative;border:0;padding:0;cursor:zoom-in;overflow:hidden;background:var(--navy)}
+.mos button:first-child{grid-row:span 2}
+.mos .all{position:absolute;z-index:3;bottom:16px;inset-inline-end:16px;background:#fff;color:#151a21;border:0;min-height:44px;padding:0 18px;cursor:pointer;display:flex;gap:8px;align-items:center;font-size:15px}
+.ptitle{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end;padding:34px 0 26px;border-bottom:1px solid var(--line)}
+.ptitle h1{font-size:clamp(28px,3.4vw,42px)}
+.ptitle .where{color:var(--gold);margin-bottom:10px;display:flex;gap:8px;align-items:center;font-size:15px}
+.ptitle .num{font-size:clamp(28px,3vw,38px);white-space:nowrap}
+.ptitle .note{color:var(--mute);font-size:14px;text-align:end}
+.pgrid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:start;padding:34px 0 80px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:40px}
+.facts>div{background:var(--bg);padding:18px;display:flex;gap:12px;align-items:center}
+.facts .ico{width:26px;height:26px;color:var(--gold)}
+.facts b{display:block;font-size:21px;font-weight:500;line-height:1.1}
+.facts span{font-size:13.5px;color:var(--mute)}
+.sect{margin-bottom:40px}
+.sect h3{font-size:22px;font-weight:300;margin-bottom:14px}
+.desc{white-space:pre-line;max-width:70ch;margin:0}
+.callout{background:var(--alt);border-inline-start:2px solid var(--gold);padding:16px 20px;margin-top:20px}
+.amen{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px 20px;padding:0;margin:0;list-style:none}
+.amen li{display:flex;align-items:center;gap:10px}
+.amen li::before{content:"";width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex:none}
+aside.side{position:sticky;top:100px;border:1px solid var(--line);padding:28px;background:var(--card)}
+aside.side h3{font-weight:300;font-size:22px;margin-bottom:6px}
+.agent{display:flex;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.av{width:58px;height:58px;border-radius:50%;flex:none;background:var(--navy);color:var(--gold2);display:grid;place-items:center;font-family:"Frank Ruhl Libre",serif;font-size:20px;overflow:hidden;position:relative}
+.av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.agent small{display:block;color:var(--mute);direction:ltr;unicode-bidi:isolate;text-align:start}
+.side .btn{width:100%;margin-top:12px}
+.minis{display:flex;gap:8px;margin-top:12px}.minis .btn{flex:1;padding:0 10px;margin:0}
+.crumbs{font-size:14px;color:var(--mute);padding-top:22px}
+.crumbs a{text-decoration:none}.crumbs a:hover{color:var(--gold)}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:60;background:#05080ef2;display:none;flex-direction:column}
+.lb.open{display:flex}
+.lb .bar{display:flex;justify-content:space-between;align-items:center;color:#fff;padding:14px 20px}
+.lb .bar button{background:none;border:0;color:#fff;font-size:28px;min-width:48px;min-height:48px;cursor:pointer}
+.lbtrack{flex:1;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.lbtrack::-webkit-scrollbar{display:none}
+.lbtrack .s{flex:0 0 100%;scroll-snap-align:center;position:relative}
+.lbtrack .s img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.lb .nav{position:absolute;top:50%;width:52px;height:52px;border-radius:50%;border:0;background:#fff;cursor:pointer;display:grid;place-items:center;color:#151a21}
+.lb .nav.p{inset-inline-start:20px}.lb .nav.n{inset-inline-end:20px}
+/* team */
+.team{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:40px 26px}
+.member{text-align:center}
+.member .av{width:150px;height:150px;font-size:42px;margin:0 auto 18px}
+.member h3{font-weight:400}
+.member p{margin:2px 0;color:var(--mute);font-size:14.5px}
+.member .links{display:flex;gap:8px;justify-content:center;margin-top:14px}
+.member .links a{width:44px;height:44px;border:1px solid var(--line);display:grid;place-items:center;border-radius:50%}
+.member .links a:hover{border-color:var(--gold);color:var(--gold)}
+/* cta, contact */
+.cta{position:relative;background:var(--navy);color:#fff;overflow:hidden}
+.cta .wrap{position:relative;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between}
+.cta p{color:#c8cfd8;margin:10px 0 0;font-weight:300}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px}
+form.lead-f{display:grid;gap:14px}
+form.lead-f input,form.lead-f select,form.lead-f textarea{width:100%;min-height:52px;border:0;border-bottom:1px solid var(--line);background:transparent;padding:10px 2px;font-size:16px}
+form.lead-f textarea{min-height:110px;resize:vertical}
+form.lead-f input:focus,form.lead-f textarea:focus{outline:0;border-color:var(--gold)}
+.ok{background:#e8f5ec;color:#14532d;padding:14px 16px}
+.cinfo{display:grid;gap:22px;margin-top:34px}
+.cinfo div{display:flex;gap:14px;align-items:flex-start}
+.cinfo .ico{color:var(--gold);width:22px;height:22px;margin-top:3px}
+.cinfo b{display:block;font-weight:500}
+.ltr{direction:ltr;unicode-bidi:isolate}
+/* side tabs + mobile bar */
+.tabs{position:fixed;z-index:35;top:50%;inset-inline-end:0;transform:translateY(-50%);display:flex;flex-direction:column;gap:2px}
+.tabs a{width:52px;height:52px;display:grid;place-items:center;background:var(--gold);color:#fff;text-decoration:none}
+.tabs a.w{background:#1fa855}
+.tabs a:hover{background:var(--navy)}
+.mbar{display:none}
+footer{background:#070f1b;color:#a7b0bc;padding:72px 0 28px;font-size:15px}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:36px}
+footer h4{color:#fff;margin:0 0 14px;font-weight:400;font-size:16px}
+footer a{display:block;text-decoration:none;padding:4px 0}footer a:hover{color:var(--gold2)}
+footer .logo{color:#fff;margin-bottom:16px}
+.copy{border-top:1px solid #1a2636;margin-top:48px;padding-top:20px;font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:1000px){.pgrid,.two{grid-template-columns:1fr}aside.side{position:static}.split,.split.rev{grid-template-columns:1fr}.split .photo,.split.rev .photo{order:0;min-height:300px}.filters{grid-template-columns:repeat(3,minmax(0,1fr))}.fgrid{grid-template-columns:1fr 1fr}.mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:200px}}
+@media(max-width:860px){nav{display:none;position:absolute;top:78px;inset-inline:0;flex-direction:column;background:var(--bg);color:var(--ink);padding:10px 18px 20px;box-shadow:0 12px 30px #0002}nav.open{display:flex}.menu{display:grid;place-items:center}.search,.finder{grid-template-columns:1fr 1fr}.search .btn{grid-column:1/-1;min-height:54px}.finder .btn{grid-column:1/-1}.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-inline-end:0}.stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}.mos{grid-template-columns:1fr 1fr;grid-template-rows:240px 140px}.mos button:first-child{grid-column:span 2;grid-row:auto}.mos button:nth-child(n+4){display:none}.tabs{display:none}.mbar{display:grid;grid-template-columns:1fr 1fr;position:fixed;bottom:0;inset-inline:0;z-index:35}.mbar a{min-height:56px;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;text-decoration:none;background:var(--navy)}.mbar a.w{background:#1fa855}body{padding-bottom:56px}}
+@media(max-width:600px){.search label{padding:10px 14px}.grid{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.fgrid{grid-template-columns:1fr}.mosaic{grid-auto-rows:170px}.tile:nth-child(1){grid-column:span 2;grid-row:span 1}.ptitle{grid-template-columns:1fr}.ptitle .note{text-align:start}.hero{min-height:640px}.hero-cap{display:none}.lang{padding:0 10px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.slides img{transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 18V7M21 18v-5a3 3 0 00-3-3H11v6M3 14h18M3 18h18M6.5 11.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></symbol>
+ <symbol id="i-bath" viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 01-4 4H8a4 4 0 01-4-4v-3zM6 12V6a2 2 0 014 0M7 19l-1 2M17 19l1 2"/></symbol>
+ <symbol id="i-area" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h3M4 14h3M9 4v3M14 4v3"/></symbol>
+ <symbol id="i-floor" viewBox="0 0 24 24"><path d="M4 20h16M6 20V9l6-5 6 5v11M10 20v-5h4v5"/></symbol>
+ <symbol id="i-cal" viewBox="0 0 24 24"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/></symbol>
+ <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+ <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></symbol>
+ <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></symbol>
+ <symbol id="i-grid" viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+ <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0112 7.5 4.3 4.3 0 0119.5 10c0 5.4-7.5 10-7.5 10z"/></symbol>
+ <symbol id="i-share" viewBox="0 0 24 24"><path d="M8 12h8M14 8l4 4-4 4M4 5v14"/></symbol>
+ <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 5l12 7-12 7z"/></symbol>
+ <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 3a9 9 0 00-7.8 13.4L3 21l4.7-1.2A9 9 0 1012 3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8a5 5 0 01-2.8-2.8l.8-1-1-2z"/></symbol>
+</svg>
+<header id="hdr"><div class="wrap hdr">
+  <a class="logo" href="#home" aria-label="KINGS Jerusalem – ראשי"><img class="lk-d" src="img/brand/kings-lockup.svg" alt="KINGS Jerusalem"><img class="lk-l" src="img/brand/kings-lockup-light.svg" alt="" aria-hidden="true"></a>
+  <nav id="nav"></nav>
+  <div class="hbtns"><button class="lang" id="langBtn"></button><button class="menu" id="menuBtn" aria-label="Menu"><svg class="ico" style="width:26px;height:26px"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+</div></header>
+<main id="app"></main>
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><a class="flogo" href="#home"><img src="img/brand/kings-logo-dark.svg" alt="KINGS Jerusalem Luxury Real Estate"></a><p data-t="footAbout"></p></div>
+    <div id="fnav"></div><div id="fhoods"></div><div id="fcontact"></div>
+  </div>
+  <div class="copy"><span>© <span id="yr"></span> KINGS Jerusalem Luxury Real Estate</span><span data-t="rights"></span></div>
+</div></footer>
+<div class="tabs" id="tabs"></div>
+<div class="mbar" id="mbar"></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true"><div class="bar"><span id="lbCount"></span><button id="lbClose" aria-label="close">×</button></div><div class="lbtrack" id="lbTrack"></div>
+<button class="nav p" data-lb="-1" aria-label="prev"><svg class="ico flipl"><use href="#i-arrow"/></svg></button><button class="nav n" data-lb="1" aria-label="next"><svg class="ico flip"><use href="#i-arrow"/></svg></button></div>
+
+<script>
+{
+/* ===== CONFIG – one place to change when moving to Vercel + Supabase ===== */
+const CONFIG={
+  IMG_BASE:'https://base44.app/api/apps/695ef89753c5a9fa95b0602f/files/', // later: Supabase Storage public URL
+  APP:'695ef89753c5a9fa95b0602f',
+  OFFICE_PHONE:'+97229998228', OFFICE_WA:'+972527334884', EMAIL:'rehaviakings@gmail.com',
+  ADDRESS_HE:'קינג ג׳ורג׳ 52, ירושלים', ADDRESS_EN:'52 King George St., Jerusalem',
+  HERO:['69944325745f116d5e9805b0','69944859b6253cb20659dd45','6966157aebe8f91c0ab179d2','6a4e5cd5def821aa5e6ee3ee']
+};
+const T={
+he:{tagline:'נדל״ן יוקרה בירושלים',home:'ראשי',listings:'נכסים למכירה',projects:'פרויקטים חדשים',team:'הצוות',about:'אודות',contact:'צור קשר',favorites:'מועדפים',
+heroA:'ירושלים כבר בלב שלך,',heroB:'עכשיו אפשר לקרוא לה בית.',heroP:'נכסי יוקרה נבחרים ברחביה, טלביה, המושבה הגרמנית וקטמון – בליווי אישי מהחיפוש ועד המפתח.',
+hood:'שכונה',type:'סוג נכס',price:'תקציב עד',beds:'חדרי שינה',any:'הכל',search:'חיפוש',findH:'מצאו את הנכס הבא שלכם',
+stActive:'נכסים בשיווק',stExcl:'בבלעדיות',stHoods:'שכונות',stValue:'שווי נכסים בשיווק',
+featured:'נכסים נבחרים',featuredP:'מבחר מהנכסים שהמשרד מחזיק בבלעדיות.',all:'לכל הנכסים',view:'לצפייה בנכס',
+latest:'נכסים אחרונים',latestP:'הנכסים שעלו לאחרונה לאתר.',
+projH:'פרויקטים חדשים',projP:'פרויקטי בוטיק בבנייה, במיקומים הנדירים של העיר.',projBtn:'לפרטי הפרויקט',
+hoodsH:'השכונות שלנו',hoodsP:'הכירו את השכונות שבהן אנחנו פועלים, ואת הנכסים שזמינים בהן עכשיו.',props:'נכסים',prop1:'נכס',
+teamH:'הצוות שלנו',teamP:'סוכנים שמכירים את ירושלים מבפנים, ומדברים עברית ואנגלית.',meet:'לכל הצוות',
+ctaH:'לא בטוחים איזו שכונה מתאימה לכם?',ctaP:'ספרו לנו מה אתם מחפשים, ונחזור אליכם עם נכסים שמתאימים בדיוק.',
+results:'נכסים',none:'לא נמצאו נכסים התואמים לחיפוש.',reset:'ניקוי',excl:'בלעדיות',newp:'פרויקט חדש',onlyFav:'מועדפים',sort:'מיון',
+sNew:'מומלצים',sLow:'מחיר: מהנמוך',sHigh:'מחיר: מהגבוה',sSize:'שטח: מהגדול',forSale:'למכירה',
+sqm:'מ״ר',bedsS:'חד׳ שינה',baths:'חדרי רחצה',floor:'קומה',of:'מתוך',ground:'קרקע',year:'שנת בנייה',exclusive:'בלעדיות',
+details:'על הנכס',amen:'מאפיינים',inv:'שימו לב',agentH:'לתיאום ביקור',agentP:'הסוכנים שלנו זמינים לכל שאלה.',waAsk:'וואטסאפ',call:'חיוג',copy:'שיתוף',copied:'הקישור הועתק',video:'סרטון הנכס',similar:'נכסים נוספים באזור',allPh:'כל התמונות',map:'מפה',
+waMsg:'שלום, אשמח לפרטים על הנכס: ',noImg:'תמונות בקרוב',onReq:'מחיר לפי פנייה',
+aboutH:'משרד בוטיק לנדל״ן יוקרה בירושלים',aboutP:'KINGS Jerusalem Luxury Real Estate פועל מרחוב קינג ג׳ורג׳ ומתמחה בנכסי יוקרה בשכונות המבוקשות של ירושלים. אנחנו מלווים קונים מהארץ ומחו״ל, משקיעים ובעלי נכסים – מהחיפוש הראשון ועד החתימה.',
+why:[['נכסים בלעדיים','גישה מוקדמת לנכסים נבחרים, לפני שהם מגיעים לשוק.'],['מומחיות מקומית','היכרות עמוקה עם שוק היוקרה הירושלמי, רחוב אחר רחוב.'],['ליווי אישי','סוכן ייעודי לכל לקוח, בעברית ובאנגלית.'],['שקיפות מלאה','מחויבות לאמון ולבהירות בכל שלב בעסקה.']],
+joinH:'מצטרפים לצוות',joinP:'מחפשים סוכני נדל״ן שאוהבים את ירושלים ורוצים לעבוד עם נכסים ייחודיים.',joinBtn:'ספרו לנו עליכם',
+cH:'נשמח לשמוע מכם',cP:'השאירו פרטים ונחזור אליכם עוד היום.',name:'שם מלא',phone:'טלפון',email:'אימייל',interest:'מה מעניין אתכם',msg:'הודעה',send:'שליחה בוואטסאפ',
+iBuy:'קניית נכס',iSell:'מכירת נכס',iInvest:'השקעה',iOther:'אחר',address:'כתובת המשרד',office:'טלפון',sent:'נפתחה הודעת וואטסאפ עם הפרטים. אם לא נפתחה:',
+footAbout:'משרד בוטיק לנדל״ן יוקרה בירושלים. נכסים נבחרים, ליווי אישי ושקיפות מלאה.',nav:'ניווט',rights:'כל הזכויות שמורות'},
+en:{tagline:'Jerusalem Luxury Real Estate',home:'Home',listings:'For sale',projects:'New projects',team:'Team',about:'About',contact:'Contact',favorites:'Favorites',
+heroA:'Jerusalem is already in your heart,',heroB:'now you can call it home.',heroP:'Hand-picked luxury homes in Rehavia, Talbiyeh, the German Colony and Katamon, with personal guidance from search to keys.',
+hood:'Neighborhood',type:'Property type',price:'Budget up to',beds:'Bedrooms',any:'Any',search:'Search',findH:'Find your next home',
+stActive:'Properties for sale',stExcl:'Exclusive',stHoods:'Neighborhoods',stValue:'Value on the market',
+featured:'Featured properties',featuredP:'A selection of properties held exclusively by our office.',all:'All properties',view:'View property',
+latest:'Latest listings',latestP:'The most recently added properties.',
+projH:'New projects',projP:'Boutique developments under construction, in the city\'s rarest locations.',projBtn:'Project details',
+hoodsH:'Our neighborhoods',hoodsP:'Get to know the neighborhoods we work in, and the homes available there now.',props:'properties',prop1:'property',
+teamH:'Our team',teamP:'Agents who know Jerusalem from the inside, in English and Hebrew.',meet:'Meet the team',
+ctaH:'Not sure which neighborhood is right for you?',ctaP:'Tell us what you are looking for and we will come back with homes that fit.',
+results:'properties',none:'No properties match your search.',reset:'Clear',excl:'Exclusive',newp:'New project',onlyFav:'Favorites',sort:'Sort',
+sNew:'Recommended',sLow:'Price: low to high',sHigh:'Price: high to low',sSize:'Size: largest',forSale:'For sale',
+sqm:'sqm',bedsS:'bd',baths:'Bathrooms',floor:'Floor',of:'of',ground:'Ground',year:'Built',exclusive:'Exclusive',
+details:'About the property',amen:'Features',inv:'Please note',agentH:'Book a viewing',agentP:'Our agents are available for any question.',waAsk:'WhatsApp',call:'Call',copy:'Share',copied:'Link copied',video:'Property video',similar:'More in the area',allPh:'All photos',map:'Map',
+waMsg:'Hello, I would like details about the property: ',noImg:'Photos coming soon',onReq:'Price on request',
+aboutH:'A boutique luxury brokerage in Jerusalem',aboutP:'KINGS Jerusalem Luxury Real Estate works from King George Street and specializes in luxury homes in Jerusalem\'s most sought-after neighborhoods. We guide local and international buyers, investors and owners from the first search to the signing.',
+why:[['Exclusive listings','Early access to select properties before they reach the market.'],['Local expertise','Deep knowledge of Jerusalem\'s luxury market, street by street.'],['Personal service','A dedicated agent for every client, in English and Hebrew.'],['Transparency','A commitment to trust and clarity at every step of the deal.']],
+joinH:'Join our team',joinP:'We are looking for real estate agents who love Jerusalem and want to work with exceptional properties.',joinBtn:'Tell us about yourself',
+cH:'We would love to hear from you',cP:'Leave your details and we will get back to you today.',name:'Full name',phone:'Phone',email:'Email',interest:'I am interested in',msg:'Message',send:'Send via WhatsApp',
+iBuy:'Buying',iSell:'Selling',iInvest:'Investing',iOther:'Other',address:'Office',office:'Phone',sent:'A WhatsApp message with your details has opened. If it didn\'t:',
+footAbout:'A boutique luxury real estate office in Jerusalem. Select properties, personal guidance, full transparency.',nav:'Navigate',rights:'All rights reserved'}};
+const HOODS={rehavia:['רחביה','Rehavia'],talbiyeh:['טלביה','Talbiyeh'],german_colony:['המושבה הגרמנית','German Colony'],old_katamon:['קטמון הישנה','Old Katamon'],city_center:['מרכז העיר','City Center'],abu_tor:['אבו תור','Abu Tor'],arnona:['ארנונה','Arnona'],nachlaot:['נחלאות','Nachlaot'],beit_hakerem:['בית הכרם','Beit HaKerem'],musrara:['מוסררה','Musrara'],baka:['בקעה','Baka'],mamilla:['ממילא','Mamilla']};
+const TYPES={apartment:['דירה','Apartment'],penthouse:['פנטהאוז','Penthouse'],duplex:['דופלקס','Duplex'],garden_apartment:['דירת גן','Garden apartment'],house:['בית פרטי','House'],new_project:['פרויקט חדש','New project']};
+const AMEN={sukkah_balcony:['מרפסת סוכה','Sukkah balcony'],parking:['חניה','Parking'],storage:['מחסן','Storage'],air_conditioning:['מיזוג אוויר','Air conditioning'],central_heating:['חימום מרכזי','Central heating'],terrace:['מרפסת','Terrace'],city_view:['נוף לעיר','City view'],furnished:['מרוהט','Furnished'],renovated:['משופץ','Renovated'],garden:['גינה','Garden'],pool:['בריכה','Pool'],shabbat_elevator:['מעלית שבת','Shabbat elevator'],pet_friendly:['ידידותי לחיות','Pet friendly'],security:['אבטחה','Security'],gym:['חדר כושר','Gym'],accessible:['נגיש','Accessible'],concierge:['קונסיירז׳','Concierge']};
+const PRICES=[3000000,5000000,7000000,10000000,15000000];
+
+let lang='he',P=[],A=[],favs=[],heroTimer=0,lbImgs=[],lbCover='';
+const F={hood:'',type:'',max:'',beds:'',excl:false,fav:false,sort:'rec'};
+try{lang=localStorage.getItem('kings-lang')||'he';favs=JSON.parse(localStorage.getItem('kings-favs')||'[]')}catch(e){}
+const $=s=>document.querySelector(s);
+const t=k=>T[lang][k];
+const L=pair=>pair?pair[lang==='he'?0:1]:'';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const f=(o,k)=>o[k+'_'+lang]||o[k+'_'+(lang==='he'?'en':'he')]||'';
+const loc=()=>lang==='he'?'he-IL':'en-US';
+const img=s=>{if(!s)return'';if(s.startsWith('w/'))return 'img/'+s;const m=s.startsWith('m:'),n=s.replace(/^(m:|p:|public\/)/,'');return CONFIG.IMG_BASE+(m?'mp/public/':'public/')+CONFIG.APP+'/'+n};
+const money=n=>n?'₪'+Number(n).toLocaleString(loc()):t('onReq');
+const shortMoney=n=>'₪'+(n/1e6).toLocaleString(loc(),{maximumFractionDigits:1})+'M';
+const wa=(num,text)=>'https://wa.me/'+num.replace(/\D/g,'')+(text?'?text='+encodeURIComponent(text):'');
+const telFmt=n=>n.replace(/^\+972/,'0').replace(/^(0\d)(\d{3})(\d{4})$/,'$1-$2-$3').replace(/^(0\d{2})(\d{3})(\d{4})$/,'$1-$2-$3');
+const agentBy=id=>A.find(a=>a.id===id);
+const initials=a=>(a.name_en||'').split(' ').map(w=>w[0]).join('').slice(0,2);
+const ic=(n,c='ico')=>`<svg class="${c}"><use href="#i-${n}"/></svg>`;
+const hoodN=k=>{const n=P.filter(p=>p.neighborhood===k).length;return n+' '+(n===1?t('prop1'):t('props'))};
+const FALL='<div class="fb"><div><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 58V30L32 10l24 20v28"/><path d="M24 58V40a8 8 0 0116 0v18"/><path d="M4 58h56"/></svg><span></span></div></div>';
+const pic=(src,label,eager,local)=>`<div class="pic"><img src="${esc(img(src))}" alt="${esc(label)}" ${eager?'':'loading="lazy"'} data-fb="${esc(label)}"${local?` data-local="${esc(local)}"`:''}></div>`;
+const cover=p=>p.images[0]?.startsWith('w/')?'img/'+p.images[0]:'img/'+p.id+'.jpg'; /* small local copy of each cover photo */
+
+/* a photo that fails to load (artifact previews block remote images) becomes a branded panel */
+document.addEventListener('error',e=>{const el=e.target;if(el.tagName!=='IMG')return;
+  if(el.dataset.local&&!el.dataset.tried){el.dataset.tried=1;el.src=el.dataset.local;return}
+  if(el.classList.contains('avimg')||el.closest('.slides')){el.remove();return}
+  if(el.dataset.fb===undefined)return;
+  const box=document.createElement('div');box.innerHTML=FALL;const fb=box.firstChild;fb.querySelector('span').textContent=el.dataset.fb||t('noImg');el.parentNode.replaceWith(fb)},true);
+
+const badge=p=>p.property_type==='new_project'?`<span class="ribbon new">${t('newp')}</span>`:p.exclusive?`<span class="ribbon">${t('exclusive')}</span>`:'';
+const favBtn=p=>{const on=favs.includes(p.id);return `<button class="fav ${on?'on':''}" data-fav="${esc(p.id)}" aria-label="${t('favorites')}" aria-pressed="${on}">${ic('heart','')}</button>`};
+const specs=p=>`<div class="specs"><span>${ic('area')}${p.sqm} ${t('sqm')}</span>${p.bedrooms?`<span>${ic('bed')}${p.bedrooms} ${t('bedsS')}</span>`:''}${p.bathrooms?`<span>${ic('bath')}${p.bathrooms}</span>`:''}${p.floor!=null?`<span>${ic('floor')}${p.floor===0?t('ground'):p.floor}</span>`:''}</div>`;
+function card(p){const hood=L(HOODS[p.neighborhood]);
+  return `<a class="card" href="#p-${esc(p.id)}"><div class="photo">${pic(p.images[0],hood,false,cover(p))}${badge(p)}${favBtn(p)}
+  <div class="price num"><small>${p['price_note_'+lang]?esc(p['price_note_'+lang]):t('forSale')}</small>${money(p.price)}</div></div>
+  <div class="cb"><div class="where">${esc(hood)} · ${esc(L(TYPES[p.property_type]))}</div><h3>${esc(f(p,'title'))}</h3>${specs(p)}</div></a>`}
+const bigCard=p=>`<a class="big" href="#p-${esc(p.id)}">${pic(p.images[0],L(HOODS[p.neighborhood]),false,cover(p))}<div class="txt"><small>${esc(L(HOODS[p.neighborhood]))}</small><h3>${esc(f(p,'title'))}</h3><div class="num">${money(p.price)}</div></div></a>`;
+
+const opts=(map,val,key)=>`<option value="">${t('any')}</option>`+Object.keys(map).filter(k=>P.some(p=>p[key]===k)).map(k=>`<option value="${k}" ${val===k?'selected':''}>${esc(L(map[k]))}</option>`).join('');
+const priceOpts=v=>`<option value="">${t('any')}</option>`+PRICES.map(n=>`<option value="${n}" ${String(v)===String(n)?'selected':''}>${shortMoney(n)}</option>`).join('');
+const bedOpts=v=>`<option value="">${t('any')}</option>`+[1,2,3,4,5].map(n=>`<option value="${n}" ${String(v)===String(n)?'selected':''}>${n}+</option>`).join('');
+const selects=(lbl)=>[['hood',opts(HOODS,F.hood,'neighborhood'),'hood'],['type',opts(TYPES,F.type,'property_type'),'type'],['max',priceOpts(F.max),'price'],['beds',bedOpts(F.beds),'beds']]
+  .map(([n,o,k])=>lbl?`<label><span>${t(k)}</span><select name="${n}">${o}</select></label>`:`<select name="${n}" aria-label="${t(k)}">${o}</select>`).join('');
+
+const SCENE=`<svg class="scene" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#06152a"/><stop offset=".6" stop-color="#16345a"/><stop offset="1" stop-color="#5b5a63"/></linearGradient>
+<linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfae78"/><stop offset="1" stop-color="#6d5634"/></linearGradient>
+<linearGradient id="dome" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset=".5" stop-color="#d9a92e"/><stop offset="1" stop-color="#8a6512"/></linearGradient>
+<pattern id="stones" width="40" height="18" patternUnits="userSpaceOnUse"><path d="M0 17.5h40M20 0v9M0 9h40M0 0v9M40 9v9" stroke="#5a4528" stroke-width=".8" opacity=".45" fill="none"/></pattern></defs>
+<rect width="1200" height="800" fill="url(#sky)"/>
+<g fill="#fff">${Array.from({length:50},(_,i)=>`<circle cx="${(i*263)%1200}" cy="${(i*97)%360+10}" r="${i%5?.8:1.4}" opacity="${.3+(i%4)*.15}"/>`).join('')}</g>
+<path d="M0 600 Q200 560 380 585 T760 575 T1200 590 V800 H0Z" fill="#1d2f47"/>
+<g transform="translate(440 470)"><rect x="-70" y="70" width="140" height="70" fill="#a98652"/><path d="M-70 70 L-50 50 H50 L70 70Z" fill="#8b6c40"/><rect x="-46" y="38" width="92" height="16" fill="#b89363"/><path d="M-52 40 A52 52 0 0 1 52 40Z" fill="url(#dome)"/><rect x="-1.5" y="-26" width="3" height="16" fill="#e8c15a"/></g>
+<g transform="translate(150 440)"><rect x="-32" y="0" width="64" height="200" fill="url(#wall)"/><rect x="-32" y="0" width="64" height="200" fill="url(#stones)"/><rect x="-40" y="-14" width="80" height="16" fill="#b8955f"/><g fill="#b8955f">${[-40,-24,-8,8,24].map(x=>`<rect x="${x}" y="-26" width="10" height="12"/>`).join('')}</g><rect x="-4" y="40" width="8" height="24" rx="4" fill="#f4cf7a"/><path d="M-10 -26 V-56 A10 10 0 0 1 10 -56 V-26Z" fill="#9c7b49"/></g>
+<rect x="0" y="610" width="1200" height="190" fill="url(#wall)"/><rect x="0" y="610" width="1200" height="190" fill="url(#stones)"/>
+<g fill="#c4a16b">${Array.from({length:40},(_,i)=>`<rect x="${i*30}" y="596" width="18" height="16"/>`).join('')}</g></svg>`;
+
+function viewHome(){
+  const ex=P.filter(p=>p.exclusive&&p.property_type!=='new_project');
+  const latest=P.filter(p=>!p.exclusive&&p.property_type!=='new_project').slice(0,6);
+  const projects=P.filter(p=>p.property_type==='new_project');
+  const hoods=Object.keys(HOODS).map(k=>[k,P.filter(p=>p.neighborhood===k)]).filter(x=>x[1].length).sort((a,b)=>b[1].length-a[1].length).slice(0,5);
+  const heroP=CONFIG.HERO.map(id=>P.find(p=>p.id===id)).filter(Boolean);
+  const value=P.reduce((s,p)=>s+(p.price||0),0);
+  return `<section class="hero">${SCENE}<div class="slides">${heroP.map((p,i)=>`<img src="${esc(img(p.images[0]))}" data-local="${esc(cover(p))}" alt="" class="${i?'':'on'}" data-id="${esc(p.id)}">`).join('')}</div>
+  <a class="hero-cap" id="heroCap" href="#p-${esc(heroP[0]?.id||'')}">${esc(f(heroP[0]||{},'title'))}</a>
+  <div class="wrap"><h1>${t('heroA')} <b>${t('heroB')}</b></h1><p>${t('heroP')}</p>
+  <form class="search" id="heroSearch">${selects(true)}<button class="btn solid">${ic('search')}${t('search')}</button></form></div>
+  <div class="hero-dots">${heroP.map((p,i)=>`<button class="${i?'':'on'}" data-hero="${i}" aria-label="${i+1}"></button>`).join('')}</div></section>
+  <section class="stats wrap"><div><b class="num">${P.length}</b><span>${t('stActive')}</span></div><div><b class="num">${P.filter(p=>p.exclusive).length}</b><span>${t('stExcl')}</span></div>
+   <div><b class="num">${new Set(P.map(p=>p.neighborhood)).size}</b><span>${t('stHoods')}</span></div><div><b class="num">${shortMoney(value)}</b><span>${t('stValue')}</span></div></section>
+  <section class="band"><div class="wrap"><div class="head"><div><span class="rule"></span><h2>${t('featured')}</h2><p>${t('featuredP')}</p></div>
+   <div class="arrows"><button data-car="-1" aria-label="prev">${ic('arrow','ico flipl')}</button><button data-car="1" aria-label="next">${ic('arrow','ico flip')}</button></div></div>
+   <div class="car"><div class="ctrack" id="car">${ex.map(bigCard).join('')}</div></div></div></section>
+  ${projects.map((p,i)=>`<section class="split ${i%2?'rev':''}"><div class="photo">${pic(p.images[0],L(HOODS[p.neighborhood]),false,cover(p))}</div><div class="txt"><small>${t('projH')} · ${esc(L(HOODS[p.neighborhood]))}</small><h2>${esc(f(p,'title'))}</h2><p>${esc(f(p,'description').split('\n').filter(Boolean).slice(1,2).join(''))}</p><div class="num" style="font-size:22px">${esc(p['price_note_'+lang]||money(p.price))}</div><p><a class="btn light" href="#p-${esc(p.id)}">${t('projBtn')} ${ic('arrow','ico flip')}</a></p></div></section>`).join('')}
+  <section class="band"><div class="wrap"><div class="head"><div><span class="rule"></span><h2>${t('latest')}</h2><p>${t('latestP')}</p></div><a class="btn" href="#listings">${t('all')} (${P.length})</a></div>
+   <div class="grid">${latest.map(card).join('')}</div></div></section>
+  <section class="band alt"><div class="wrap"><div class="head"><div><span class="rule"></span><h2>${t('findH')}</h2></div></div>
+   <form class="finder" id="finder">${selects(false)}<button class="btn solid">${ic('search')}${t('search')}</button></form></div></section>
+  <section class="band"><div class="wrap"><div class="head"><div><span class="rule"></span><h2>${t('hoodsH')}</h2><p>${t('hoodsP')}</p></div></div>
+   <div class="mosaic">${hoods.map(([k,list])=>`<a class="tile" href="#hood-${k.replace(/_/g,'-')}">${pic(list[0].images[0],'',false,cover(list[0]))}<div class="t"><b>${esc(L(HOODS[k]))}</b><span>${hoodN(k)}</span></div></a>`).join('')}</div></div></section>
+  <section class="band alt"><div class="wrap"><div class="head"><div><span class="rule"></span><h2>${t('teamH')}</h2><p>${t('teamP')}</p></div><a class="btn" href="#team">${t('meet')}</a></div>
+   <div class="team">${A.slice(0,4).map(member).join('')}</div></div></section>
+  ${cta()}`}
+
+const cta=()=>`<section class="band cta"><div class="wrap"><div><h2>${t('ctaH')}</h2><p>${t('ctaP')}</p></div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn gold" href="#contact">${t('contact')}</a><a class="btn light" href="${wa(CONFIG.OFFICE_WA)}" target="_blank" rel="noopener">${ic('wa')}${t('waAsk')}</a></div></div></section>`;
+
+const avatar=a=>`<div class="av">${esc(initials(a))}${a.photo?`<img class="avimg" src="${esc(img(a.photo))}" alt="">`:''}</div>`;
+const member=a=>`<div class="member">${avatar(a)}<h3>${esc(f(a,'name'))}</h3><p>${esc(a['role_'+lang]||(lang==='he'?'סוכן/ת נדל״ן':'Real estate agent'))}</p><p class="ltr">${esc(telFmt(a.phone))}</p>
+  <div class="links"><a href="${wa(a.whatsapp||a.phone)}" target="_blank" rel="noopener" aria-label="WhatsApp">${ic('wa')}</a><a href="tel:${esc(a.phone)}" aria-label="${t('call')}">${ic('phone')}</a><a href="mailto:${esc(a.email)}" aria-label="${t('email')}">${ic('mail')}</a></div></div>`;
+
+function filtered(){
+  let r=P.filter(p=>(!F.hood||p.neighborhood===F.hood)&&(!F.type||p.property_type===F.type)&&(!F.max||p.price<=+F.max)&&(!F.beds||(p.bedrooms||0)>=+F.beds)&&(!F.excl||p.exclusive)&&(!F.fav||favs.includes(p.id)));
+  if(F.sort==='low')r=[...r].sort((a,b)=>(a.price||9e9)-(b.price||9e9));if(F.sort==='high')r=[...r].sort((a,b)=>(b.price||0)-(a.price||0));if(F.sort==='size')r=[...r].sort((a,b)=>b.sqm-a.sqm);
+  return r}
+const viewListings=()=>`<div class="spacer"></div><section class="wrap"><div class="pagehead"><span class="rule"></span><h1>${F.hood?esc(L(HOODS[F.hood])):t('listings')}</h1></div>
+  <form class="filters" id="filters">${selects(true).replace(/<label>/g,'<label>')}<label><span>${t('sort')}</span><select name="sort">${[['rec','sNew'],['low','sLow'],['high','sHigh'],['size','sSize']].map(([v,k])=>`<option value="${v}" ${F.sort===v?'selected':''}>${t(k)}</option>`).join('')}</select></label></form>
+  <div class="toggles"><div><button class="pill ${F.excl?'on':''}" data-tog="excl" aria-pressed="${F.excl}">${t('excl')}</button><button class="pill ${F.fav?'on':''}" data-tog="fav" aria-pressed="${F.fav}">${ic('heart','ico')} ${t('onlyFav')}</button><button class="pill" id="reset">${t('reset')}</button></div><span class="count" id="count"></span></div>
+  <div id="results" style="padding-bottom:90px"></div></section>`;
+function renderResults(){const r=filtered();$('#count').textContent=r.length+' '+t('results');$('#results').innerHTML=r.length?`<div class="grid">${r.map(card).join('')}</div>`:`<div class="empty">${t('none')}</div>`}
+
+function viewProperty(id){
+  const p=P.find(x=>x.id===id);if(!p)return viewListings();
+  const hood=L(HOODS[p.neighborhood]),title=f(p,'title');
+  const agents=[p.agent_id,...(p.co_agent_ids||[])].filter((v,i,a)=>v&&a.indexOf(v)===i).map(agentBy).filter(Boolean);
+  if(!agents.length)agents.push(A[0]);
+  const url=location.href.split('#')[0]+'#p-'+p.id,msg=t('waMsg')+title+' – '+url;
+  lbImgs=p.images;lbCover=cover(p);
+  const facts=[['area',p.sqm,t('sqm')],p.bedrooms&&['bed',p.bedrooms,t('beds')],p.bathrooms&&['bath',p.bathrooms,t('baths')],p.floor!=null&&['floor',p.floor===0?t('ground'):p.floor+(p.total_floors?' '+t('of')+' '+p.total_floors:''),t('floor')],p.year_built&&['cal',p.year_built,t('year')]].filter(Boolean);
+  const sim=P.filter(x=>x.neighborhood===p.neighborhood&&x.id!==p.id).concat(P.filter(x=>x.neighborhood!==p.neighborhood&&x.property_type===p.property_type)).filter(x=>x.id!==p.id).slice(0,3);
+  const mapQ=p.address&&p.address.length>3?'https://www.google.com/maps/search/'+encodeURIComponent(p.address+', ירושלים'):'';
+  return `<div class="spacer"></div><div class="wrap"><div class="crumbs"><a href="#listings">${t('listings')}</a> / <a href="#hood-${p.neighborhood.replace(/_/g,'-')}">${esc(hood)}</a></div>
+  <div class="mos">${p.images.slice(0,5).map((s,i)=>`<button data-open="${i}" aria-label="${i+1}">${pic(s,i?'':hood,i===0,i?'':cover(p))}</button>`).join('')}
+   <button class="all" data-open="0">${ic('grid')}${t('allPh')} (${p.images.length})</button></div>
+  <div class="ptitle"><div><div class="where">${ic('pin')}${esc(hood)} · ${esc(L(TYPES[p.property_type]))}${p.exclusive?' · '+t('exclusive'):''}</div><h1>${esc(title)}</h1></div>
+   <div><div class="num">${money(p.price)}</div>${p['price_note_'+lang]?`<div class="note">${esc(p['price_note_'+lang])}</div>`:''}</div></div>
+  <div class="pgrid"><div>
+   <div class="facts">${facts.map(([i,b,s])=>`<div>${ic(i)}<div><b>${esc(b)}</b><span>${esc(s)}</span></div></div>`).join('')}</div>
+   <div class="sect"><h3>${t('details')}</h3><p class="desc">${esc(f(p,'description'))}</p>${f(p,'features')?`<div class="callout"><b>${t('inv')}:</b> ${esc(f(p,'features'))}</div>`:''}</div>
+   <div class="sect"><h3>${t('amen')}</h3><ul class="amen">${p.amenities.map(a=>`<li>${esc(L(AMEN[a])||a)}</li>`).join('')}</ul></div>
+   <div style="display:flex;gap:10px;flex-wrap:wrap">${p.video_url?`<a class="btn" href="${esc(p.video_url)}" target="_blank" rel="noopener">${ic('play')}${t('video')}</a>`:''}${mapQ?`<a class="btn" href="${esc(mapQ)}" target="_blank" rel="noopener">${ic('pin')}${t('map')}</a>`:''}</div></div>
+  <aside class="side"><h3>${t('agentH')}</h3><p style="margin:0 0 6px;color:var(--mute);font-size:15px">${t('agentP')}</p>
+   ${agents.map(a=>`<div class="agent">${avatar(a)}<div><b style="font-weight:500">${esc(f(a,'name'))}</b><small>${esc(telFmt(a.phone))}</small></div></div>`).join('')}
+   <a class="btn wa" href="${wa(agents[0].whatsapp||agents[0].phone,msg)}" target="_blank" rel="noopener">${ic('wa')}${t('waAsk')}</a>
+   <div class="minis"><a class="btn" href="tel:${esc(agents[0].phone)}">${ic('phone')}${t('call')}</a><button class="btn" id="copyLink" data-url="${esc(url)}">${ic('share')}${t('copy')}</button><button class="btn" data-fav="${esc(p.id)}" aria-pressed="${favs.includes(p.id)}" aria-label="${t('favorites')}">${ic('heart')}</button></div></aside></div></div>
+  ${sim.length?`<section class="band alt"><div class="wrap"><div class="head"><div><span class="rule"></span><h2>${t('similar')}</h2></div></div><div class="grid">${sim.map(card).join('')}</div></div></section>`:''}`}
+
+const viewTeam=()=>`<div class="spacer"></div><section class="wrap"><div class="pagehead"><span class="rule"></span><h1>${t('teamH')}</h1><p style="color:var(--mute)">${t('teamP')}</p></div><div class="team" style="padding:20px 0 100px">${A.map(member).join('')}</div></section>${cta()}`;
+const viewAbout=()=>`<div class="spacer"></div><section class="band"><div class="wrap two"><div><span class="rule"></span><h1 style="font-size:clamp(32px,4vw,50px)">${t('aboutH')}</h1><p style="font-size:19px;font-weight:300;color:var(--mute);margin-top:20px">${t('aboutP')}</p></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px 28px;align-content:center">${t('why').map(w=>`<div><span class="rule"></span><h3>${w[0]}</h3><p style="color:var(--mute);margin:6px 0 0">${w[1]}</p></div>`).join('')}</div></div></section>
+  <section class="stats wrap" style="border-top:1px solid var(--line)"><div><b class="num">${P.length}</b><span>${t('stActive')}</span></div><div><b class="num">${A.length}</b><span>${t('team')}</span></div><div><b class="num">${new Set(P.map(p=>p.neighborhood)).size}</b><span>${t('stHoods')}</span></div><div><b class="num">2</b><span>${lang==='he'?'שפות שירות':'Service languages'}</span></div></section>
+  <section class="band cta"><div class="wrap"><div><h2>${t('joinH')}</h2><p>${t('joinP')}</p></div><a class="btn gold" href="#contact">${t('joinBtn')}</a></div></section>`;
+const viewContact=()=>`<div class="spacer"></div><section class="band"><div class="wrap two"><div><span class="rule"></span><h1 style="font-size:clamp(32px,4vw,50px)">${t('cH')}</h1><p style="color:var(--mute);font-size:18px;font-weight:300">${t('cP')}</p>
+  <div class="cinfo"><div>${ic('pin')}<div><b>${t('address')}</b>${lang==='he'?CONFIG.ADDRESS_HE:CONFIG.ADDRESS_EN}</div></div><div>${ic('phone')}<div><b>${t('office')}</b><a class="ltr" href="tel:${CONFIG.OFFICE_PHONE}">${telFmt(CONFIG.OFFICE_PHONE)}</a></div></div>
+  <div>${ic('mail')}<div><b>${t('email')}</b><a href="mailto:${CONFIG.EMAIL}">${CONFIG.EMAIL}</a></div></div><div>${ic('wa')}<div><b>WhatsApp</b><a class="ltr" href="${wa(CONFIG.OFFICE_WA)}" target="_blank" rel="noopener">${telFmt(CONFIG.OFFICE_WA)}</a></div></div></div></div>
+  <form class="lead-f" id="leadForm"><input name="name" required placeholder="${t('name')}" autocomplete="name"><input name="phone" required type="tel" placeholder="${t('phone')}" autocomplete="tel">
+  <input name="email" type="email" placeholder="${t('email')}" autocomplete="email"><select name="interest" aria-label="${t('interest')}">${['iBuy','iSell','iInvest','iOther'].map(k=>`<option>${t(k)}</option>`).join('')}</select>
+  <textarea name="msg" placeholder="${t('msg')}"></textarea><button class="btn wa" style="margin-top:10px">${ic('wa')}${t('send')}</button><div id="leadOk"></div></form></div></section>`;
+
+function startHero(){clearInterval(heroTimer);const imgs=[...document.querySelectorAll('.slides img')];if(imgs.length<2||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  heroTimer=setInterval(()=>{const live=[...document.querySelectorAll('.slides img')];if(live.length<2)return clearInterval(heroTimer);const i=live.findIndex(x=>x.classList.contains('on'));showHero((i+1)%live.length)},6500)}
+function showHero(i){const live=[...document.querySelectorAll('.slides img')];if(!live[i])return;live.forEach((x,j)=>x.classList.toggle('on',i===j));
+  document.querySelectorAll('[data-hero]').forEach((b,j)=>b.classList.toggle('on',i===j));const p=P.find(x=>x.id===live[i].dataset.id);const c=$('#heroCap');if(p&&c){c.href='#p-'+p.id;c.textContent=f(p,'title')}}
+
+function render(){
+  const h=location.hash.slice(1)||'home';let html,cur=h;
+  if(h.startsWith('p-')){html=viewProperty(h.slice(2));cur='listings'}
+  else if(h.startsWith('hood-')){Object.assign(F,{hood:h.slice(5).replace(/-/g,'_'),type:'',max:'',beds:''});html=viewListings();cur='listings'}
+  else if(h==='projects'){Object.assign(F,{hood:'',type:'new_project',max:'',beds:''});html=viewListings();cur='projects'}
+  else html=({listings:viewListings,team:viewTeam,about:viewAbout,contact:viewContact}[h]||viewHome)();
+  $('#app').innerHTML=html;
+  if($('#results'))renderResults();
+  $('#nav').innerHTML=['home','listings','projects','team','about','contact'].map(k=>`<a href="#${k}" class="${cur===k?'on':''}">${t(k)}</a>`).join('');
+  $('#nav').classList.remove('open');
+  document.body.dataset.view=cur;onScroll();startHero();window.scrollTo(0,0)}
+function onScroll(){$('#hdr').classList.toggle('clear',document.body.dataset.view==='home'&&!location.hash.startsWith('#p-')&&scrollY<60&&!$('#nav').classList.contains('open'))}
+
+function chrome(){
+  document.documentElement.lang=lang;document.documentElement.dir=lang==='he'?'rtl':'ltr';
+  document.title=lang==='he'?'KINGS – נדל״ן יוקרה בירושלים':'KINGS – Jerusalem Luxury Real Estate';
+  document.querySelectorAll('[data-t]').forEach(e=>e.textContent=t(e.dataset.t));
+  $('#langBtn').textContent=lang==='he'?'EN':'עב';
+  $('#fnav').innerHTML=`<h4>${t('nav')}</h4>`+['listings','projects','team','about','contact'].map(k=>`<a href="#${k}">${t(k)}</a>`).join('');
+  $('#fhoods').innerHTML=`<h4>${t('hoodsH')}</h4>`+[...new Set(P.map(p=>p.neighborhood))].slice(0,6).map(k=>`<a href="#hood-${k.replace(/_/g,'-')}">${esc(L(HOODS[k]))}</a>`).join('');
+  $('#fcontact').innerHTML=`<h4>${t('contact')}</h4><a>${lang==='he'?CONFIG.ADDRESS_HE:CONFIG.ADDRESS_EN}</a><a class="ltr" href="tel:${CONFIG.OFFICE_PHONE}">${telFmt(CONFIG.OFFICE_PHONE)}</a><a href="mailto:${CONFIG.EMAIL}">${CONFIG.EMAIL}</a>`;
+  $('#tabs').innerHTML=`<a class="w" href="${wa(CONFIG.OFFICE_WA)}" target="_blank" rel="noopener" aria-label="WhatsApp">${ic('wa')}</a><a href="#listings" aria-label="${t('search')}">${ic('search')}</a><a href="#contact" aria-label="${t('contact')}">${ic('mail')}</a>`;
+  $('#mbar').innerHTML=`<a href="tel:${CONFIG.OFFICE_PHONE}">${ic('phone')}${t('call')}</a><a class="w" href="${wa(CONFIG.OFFICE_WA)}" target="_blank" rel="noopener">${ic('wa')}${t('waAsk')}</a>`;
+  $('#yr').textContent=new Date().getFullYear()}
+
+function readForm(form){const d=Object.fromEntries(new FormData(form));F.hood=d.hood||'';F.type=d.type||'';F.max=d.max||'';F.beds=d.beds||'';if(form.id==='filters')F.sort=d.sort||'rec'}
+function openLb(i){$('#lbTrack').innerHTML=lbImgs.map((s,j)=>`<div class="s">${pic(s,'',j===i,j?'':lbCover)}</div>`).join('');$('#lb').classList.add('open');document.body.style.overflow='hidden';
+  const tr=$('#lbTrack');requestAnimationFrame(()=>{tr.children[i]?.scrollIntoView({inline:'center',block:'nearest'});lbCount()})}
+function closeLb(){$('#lb').classList.remove('open');document.body.style.overflow=''}
+function lbCount(){const tr=$('#lbTrack');$('#lbCount').textContent=(Math.round(Math.abs(tr.scrollLeft)/tr.clientWidth)+1)+' / '+lbImgs.length}
+function step(el,d){const dir=getComputedStyle(el).direction==='rtl'?-1:1;el.scrollBy({left:d*dir*(el.id==='car'?el.firstElementChild.clientWidth+22:el.clientWidth),behavior:'smooth'})}
+
+document.addEventListener('click',e=>{
+  const fb=e.target.closest('[data-fav]');
+  if(fb){e.preventDefault();e.stopPropagation();const id=fb.dataset.fav;favs=favs.includes(id)?favs.filter(x=>x!==id):[...favs,id];try{localStorage.setItem('kings-favs',JSON.stringify(favs))}catch(err){}
+    document.querySelectorAll(`[data-fav="${id}"]`).forEach(b=>{const on=favs.includes(id);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);if(!b.classList.contains('fav'))b.style.color=on?'var(--gold)':''});if(F.fav&&$('#results'))renderResults();return}
+  const q=s=>e.target.closest(s);
+  if(q('[data-car]')){step($('#car'),+q('[data-car]').dataset.car);return}
+  if(q('[data-hero]')){showHero(+q('[data-hero]').dataset.hero);startHero();return}
+  if(q('[data-open]')){openLb(+q('[data-open]').dataset.open);return}
+  if(q('[data-lb]')){step($('#lbTrack'),+q('[data-lb]').dataset.lb);return}
+  if(q('#lbClose')){closeLb();return}
+  if(q('[data-tog]')){const k=q('[data-tog]').dataset.tog;F[k]=!F[k];q('[data-tog]').classList.toggle('on',F[k]);q('[data-tog]').setAttribute('aria-pressed',F[k]);renderResults();return}
+  if(q('#reset')){Object.assign(F,{hood:'',type:'',max:'',beds:'',excl:false,fav:false,sort:'rec'});location.hash==='#listings'?render():location.hash='listings';return}
+  if(q('#copyLink')){const b=q('#copyLink');navigator.clipboard?.writeText(b.dataset.url).then(()=>{b.lastChild.textContent=t('copied')}).catch(()=>{});return}
+  if(q('#menuBtn')){$('#nav').classList.toggle('open');onScroll();return}
+  if(q('#langBtn')){lang=lang==='he'?'en':'he';try{localStorage.setItem('kings-lang',lang)}catch(err){}chrome();render()}});
+document.addEventListener('change',e=>{const fm=e.target.closest('#filters');if(fm){readForm(fm);renderResults()}});
+document.addEventListener('submit',e=>{e.preventDefault();const fm=e.target;
+  if(fm.id==='heroSearch'||fm.id==='finder'){readForm(fm);F.excl=false;F.fav=false;location.hash='listings'}
+  if(fm.id==='leadForm'){const d=Object.fromEntries(new FormData(fm));const link=wa(CONFIG.OFFICE_WA,`${d.name} | ${d.phone}${d.email?' | '+d.email:''}\n${d.interest}\n${d.msg||''}`);
+    $('#leadOk').innerHTML=`<p class="ok">${t('sent')} <a href="${link}" target="_blank" rel="noopener">wa.me</a></p>`;window.open(link,'_blank','noopener')}});
+document.addEventListener('scroll',e=>{if(e.target.id==='lbTrack')lbCount()},true);
+window.addEventListener('scroll',onScroll,{passive:true});
+document.addEventListener('keydown',e=>{if($('#lb').classList.contains('open')){if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft'||e.key==='ArrowRight')step($('#lbTrack'),(e.key==='ArrowRight'?1:-1)*(lang==='he'?-1:1))}});
+window.addEventListener('hashchange',()=>{closeLb();render()});
+
+Promise.all([fetch('data/properties.json').then(r=>r.json()),fetch('data/agents.json').then(r=>r.json())])
+  .then(([p,a])=>{P=p;A=a;chrome();render()})
+  .catch(()=>{$('#app').innerHTML='<section class="band"><div class="wrap"><p>Could not load listings.</p></div></section>'});
+}
+</script>
+</body>
+</html>
